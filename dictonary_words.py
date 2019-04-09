@@ -26,7 +26,7 @@ def make_sentence(file, length):
     dictionary_length = file_len(file)
 
     while len(sentence) < length:
-        randomLine = random.randint(0, dictionary_length + 1)
+        randomLine = random.randint(0, dictionary_length - 1)
 
         with open(file) as f:
             for i, line in enumerate(f):
