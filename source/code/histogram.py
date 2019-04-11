@@ -1,55 +1,19 @@
 """
-A histogram() function which takes a source_text argument 
-(can be either a filename or the contents of the file as 
-a string, your choice) and return a histogram data 
-structure.
+Input: `python source/code/histogram.py source/code/text/fish.txt fish`
 
-A unique_words() function that takes a histogram argument 
-and returns the total count of unique words in the 
-histogram.
+Output:
 
-A frequency() function that takes a word and histogram 
-argument and returns the number of times that word appears 
-in a text.
+```
+Histogram as a dictionary: {'blue': 1, 'fish': 4, 'two': 1, 'red': 1, 'one': 1}
 
-Pseudocodingish --
+Histogram as a list of tuples: [('one', 1), ('two', 1), ('red', 1), ('blue', 1), ('fish', 4)]
 
-def histogram(file_name):
-    # return histogram = {'one': 1, 'blue': 1, 'two': 1, 'fish': 4, 'red': 1}
-    source_text = 
+Histogram as a list of lists: [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]]
 
-    each source_word in source_text
-        each histogram_word in histogram
-            if source_word == histogram_word
-                increment histogram_word pair
-            else
-                create new value in histogram and set it to 1
+`source/code/text/fish.txt` has 4 unique words
 
-
-
-def histogram_list(file):
-    hist = list()
-
-    with open(source_file, 'r') as file:
-        for line in file:
-            for word in line.split():
-                clean_word = remove_punctuation(word)
-
-                if len(hist) > 0:
-                    word_found = False
-
-                    for word_item in hist:
-                        if clean_word == word_item[0]:
-                            word_item[1] += 1
-                            word_found = True
-
-                    if not word_found:
-                        hist.append([clean_word, 1])
-                else:
-                    hist.append([clean_word, 1])
-    
-        
-
+"fish" appears in `source/code/text/fish.txt` 4 times
+```
 """
 
 import sys, string, regex
@@ -87,23 +51,23 @@ def histogram_tuples(source_file):
     return histogram
 
 def histogram_list(source_file):
-    hist = list()
+    histogram = list()
 
     with open(source_file, 'r') as file:
         for line in file:
             for word in line.split():
                 clean_word = remove_punctuation(word)
 
-                if len(hist) > 0:
+                if len(histogram) > 0:
                     word_found = False
 
-                    for word_item in hist:
+                    for word_item in histogram:
                         if clean_word == word_item[0]:
                             word_item[1] += 1
                             word_found = True
 
                     if not word_found:
-                        hist.append([clean_word, 1])
+                        histogram.append([clean_word, 1])
                 else:
                     histogram.append([clean_word, 1])
 
@@ -148,7 +112,7 @@ if __name__ == "__main__":
     histogram_tuple = histogram_tuples(source_file)
     print('Histogram as a list of tuples: {} \n'.format(histogram_tuple))
 
-    histogram_list = histogram_tuples(source_file)
+    histogram_list = histogram_list(source_file)
     print('Histogram as a list of lists: {} \n'.format(histogram_list))
 
     # Return the amount of unique words in a file.txt
