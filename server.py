@@ -4,7 +4,7 @@ from sample import sample_by_frequency
 
 HTML = """
 <html>
-<head><title>CSS Colors</title></head>
+<head><title>App</title></head>
 <body style="display:flex;flex-flow:column nowrap;justify-content:center;align-items:center">
   <h1 style="color:#C0C0C0;font-size:100px;text-shadow: 2px 2px black;">{}</h1>
 </body>
