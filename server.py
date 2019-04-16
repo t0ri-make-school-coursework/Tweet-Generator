@@ -1,6 +1,6 @@
 from flask import Flask
-from histogram import histogram_dict, get_words
-from sample import sample_by_frequency
+from source/code/histogram import histogram_dict, get_words
+from source/code/sample import sample_by_frequency
 
 HTML = """
 <html>
