@@ -1,0 +1,8 @@
+[
+  "source/listogram_test.py::ListogramTest::test_add_count",
+  "source/listogram_test.py::ListogramTest::test_contains",
+  "source/listogram_test.py::ListogramTest::test_entries",
+  "source/listogram_test.py::ListogramTest::test_frequency",
+  "source/listogram_test.py::ListogramTest::test_tokens",
+  "source/listogram_test.py::ListogramTest::test_types"
+]
