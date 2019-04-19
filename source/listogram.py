@@ -19,40 +19,46 @@ class Listogram(list):
 
     def add_count(self, word, count=1):
         """Increase frequency count of given word by given count amount."""
-        self.tokens += count
-        word_found = False
+        self.tokens += count    # increment tokens by count
+        word_found = False      # initiate word_found as False Bool
 
         for word_item in self:
             if word in word_item:
-                word_item[1] += count
-                word_found = True
+                # if the word is in listogram
+                word_item[1] += count   # increment value by count
+                word_found = True       # set word_found to True
 
+        # if word_found is still False
         if not word_found:
-            self.types += 1
-            self.append([word, count])
+            self.types += 1                 # increment types by 1
+            self.append([word, count])      # create new word_item for new word
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
-        # TODO: Retrieve word frequency count
         for word_item in self: 
             if word in word_item:
-                return word_item[1]
+                return word_item[1]  # return frequency if word is found
         
-        return 0
+        return 0    # return 0 if frequency not found
 
     def __contains__(self, word):
         """Return boolean indicating if given word is in this histogram."""
         for word_item in self:
             if word in word_item:
-                return True
+                return True         # if word is in listogram, return True
         
-        return False
+        return False                # if word isn't in listogram, return False
 
     def _index(self, target):
         """Return the index of entry containing given target word if found in
         this histogram, or None if target word is not found."""
-        # TODO: Implement linear search to find index of entry with target word
+        index = 0                    # initialize index as 0
+        for word_item in self:
+            index += 1               # increment variable index for each index
+            if target in word_item:
+                return index         # return index when target is found
 
+        return None                  # return None if target is not found
 
 def print_histogram(word_list):
     print('word list: {}'.format(word_list))

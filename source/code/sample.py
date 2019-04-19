@@ -15,6 +15,18 @@ def sample_by_frequency(histogram):
         if random_value <= accumulator:
             return word
 
+def frequency_test():
+    # testing relative probability
+    # sample 1000x, write each response in a file, print a histogram from those words 
+    x = 0
+    f = open('words.txt','w+')
+    while x < 1000:
+        f.write(str(sample_by_frequency(histogram)) + ' ')
+        x += 1
+    f.close()
+
+    return print(histogram_dict(get_words('words.txt')))
+
 if __name__ == "__main__":
     source_file = sys.argv[1]
     words_array = get_words(source_file)
@@ -25,14 +37,6 @@ if __name__ == "__main__":
 
     # get a frequency sample word
     print('frequency sample word from `{}`: {} \n'.format(source_file, sample_by_frequency(histogram)))
-
-    # testing relative probability
-    # sample 1000x, write each response in a file, print a histogram from those words 
-    x = 0
-    f = open('words.txt','w+')
-    while x < 1000:
-        f.write(str(sample_by_frequency(histogram)) + ' ')
-        x += 1
-    f.close()
-
-    print(histogram_dict(get_words('words.txt')))
+    
+    # test relative probability
+    frequency_test()

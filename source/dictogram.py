@@ -19,19 +19,23 @@ class Dictogram(dict):
 
     def add_count(self, word, count=1):
         """Increase frequency count of given word by given count amount."""
-        self.tokens += count
+        self.tokens += count    # increment tokens by count
       
         if word not in self:
+            # if word isn't in dict, create new pair and increment types
             self[word] = count
             self.types += 1
         else:
+            # if word is in dict, increment value by count
             self[word] += count
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
+        # if word isn't in self, return 0
         if word not in self:
             return 0
 
+        # if word is in self, return frequency
         return self[word]
 
 def print_histogram(word_list):
