@@ -1,1 +1,3 @@
-{}
+{
+  "source/hashtable_test.py::HashTableTest::test_delete": true
+}

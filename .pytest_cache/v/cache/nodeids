@@ -1,8 +1,18 @@
 [
-  "source/listogram_test.py::ListogramTest::test_add_count",
-  "source/listogram_test.py::ListogramTest::test_contains",
-  "source/listogram_test.py::ListogramTest::test_entries",
-  "source/listogram_test.py::ListogramTest::test_frequency",
-  "source/listogram_test.py::ListogramTest::test_tokens",
-  "source/listogram_test.py::ListogramTest::test_types"
+  "source/linkedlist_test.py::NodeTest::test_init",
+  "source/linkedlist_test.py::NodeTest::test_linking_nodes",
+  "source/linkedlist_test.py::LinkedListTest::test_append",
+  "source/linkedlist_test.py::LinkedListTest::test_delete_with_3_items",
+  "source/linkedlist_test.py::LinkedListTest::test_delete_with_5_items",
+  "source/linkedlist_test.py::LinkedListTest::test_delete_with_item_not_in_list",
+  "source/linkedlist_test.py::LinkedListTest::test_find",
+  "source/linkedlist_test.py::LinkedListTest::test_init",
+  "source/linkedlist_test.py::LinkedListTest::test_init_with_list",
+  "source/linkedlist_test.py::LinkedListTest::test_items_after_append",
+  "source/linkedlist_test.py::LinkedListTest::test_items_after_prepend",
+  "source/linkedlist_test.py::LinkedListTest::test_length_after_append",
+  "source/linkedlist_test.py::LinkedListTest::test_length_after_append_and_prepend",
+  "source/linkedlist_test.py::LinkedListTest::test_length_after_delete",
+  "source/linkedlist_test.py::LinkedListTest::test_length_after_prepend",
+  "source/linkedlist_test.py::LinkedListTest::test_prepend"
 ]
