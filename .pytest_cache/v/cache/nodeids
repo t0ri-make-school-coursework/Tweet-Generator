@@ -1,18 +1,11 @@
 [
-  "source/linkedlist_test.py::NodeTest::test_init",
-  "source/linkedlist_test.py::NodeTest::test_linking_nodes",
-  "source/linkedlist_test.py::LinkedListTest::test_append",
-  "source/linkedlist_test.py::LinkedListTest::test_delete_with_3_items",
-  "source/linkedlist_test.py::LinkedListTest::test_delete_with_5_items",
-  "source/linkedlist_test.py::LinkedListTest::test_delete_with_item_not_in_list",
-  "source/linkedlist_test.py::LinkedListTest::test_find",
-  "source/linkedlist_test.py::LinkedListTest::test_init",
-  "source/linkedlist_test.py::LinkedListTest::test_init_with_list",
-  "source/linkedlist_test.py::LinkedListTest::test_items_after_append",
-  "source/linkedlist_test.py::LinkedListTest::test_items_after_prepend",
-  "source/linkedlist_test.py::LinkedListTest::test_length_after_append",
-  "source/linkedlist_test.py::LinkedListTest::test_length_after_append_and_prepend",
-  "source/linkedlist_test.py::LinkedListTest::test_length_after_delete",
-  "source/linkedlist_test.py::LinkedListTest::test_length_after_prepend",
-  "source/linkedlist_test.py::LinkedListTest::test_prepend"
+  "source/hashtable_test.py::HashTableTest::test_contains",
+  "source/hashtable_test.py::HashTableTest::test_delete",
+  "source/hashtable_test.py::HashTableTest::test_init",
+  "source/hashtable_test.py::HashTableTest::test_items",
+  "source/hashtable_test.py::HashTableTest::test_keys",
+  "source/hashtable_test.py::HashTableTest::test_length",
+  "source/hashtable_test.py::HashTableTest::test_set_and_get",
+  "source/hashtable_test.py::HashTableTest::test_set_twice_and_get",
+  "source/hashtable_test.py::HashTableTest::test_values"
 ]

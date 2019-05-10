@@ -119,29 +119,22 @@ class LinkedList(object):
         node = self.head                                                # get node head points to       O(1)
         while node is not None:                                         # so long as node isn't None;  from 1 to n iterations: O(1), O(n)
             next_node = node.next                                       # hold the next node    O(1)
-            if node.data == item:                                       # if node.data is item  O(1)
-
-                if node == self.head and node == self.tail:             # if only one node in ll    O(1)
+            if node.data is item and self.head is node:                 # if first node.data is item and head O(1)
+                if self.head is self.tail:                              # ll is 1 long
                     self.head = None                                    # point head to None    O(1)
                     self.tail = None                                    # point tail to None    O(1)
-                    del node                                            # delete only node    O(1)
                     return                                              # return    O(1)
-            
-                                                                        # if first node is a match:
-                self.head = node.next                                   # point head to the next node       O(1)
-                del node                                                # delete that node    O(1)
-                return                                                  # return    O(1)
+                
+                self.head = next_node
+                return
 
             if next_node is not None and next_node.data == item:        # if the next node holds the item    O(1)
-               
                 if next_node == self.tail:                              # if the next node is the tail    O(1)
                     self.tail = node                                    # self.tail points to node    O(1)
                     node.next = None                                    # node points to None    O(1)
-                    del next_node                                       # delete the next node    O(1)
                     return                                              # return    O(1)
 
                 node.next = next_node.next                              # node points to the node that next_node pointed to    O(1)
-                del next_node                                           # delete next_node    O(1)
                 return                                                  # return    O(1)
             
             node = next_node                                            # moves thru ll in while    O(1)
@@ -164,7 +157,7 @@ def test_linked_list():
     print('length: {}'.format(ll.length()))
 
     # Enable this after implementing delete method
-    delete_implemented = False
+    delete_implemented = True
     if delete_implemented:
         print('\nTesting delete:')
         for item in ['B', 'C', 'A']:
