@@ -9,6 +9,8 @@ class HashTable(object):
         """Initialize this hash table with the given initial size."""
         # Create a new list (used as fixed-size array) of empty linked lists
         self.buckets = [LinkedList() for _ in range(init_size)]
+        self.entries = 0
+        
 
     def __str__(self):
         """Return a formatted string representation of this hash table."""
@@ -30,7 +32,7 @@ class HashTable(object):
         # Collect all keys in each bucket
         all_keys = list()
         for bucket in self.buckets:
-            for key, value in bucket.items():   # O(n)
+            for key, _ in bucket.items():   # O(n)
                 all_keys.append(key)
         return all_keys
 
@@ -55,10 +57,12 @@ class HashTable(object):
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
         Running time: O(n), loops through every item in each bucket"""
-        length = 0      # O(1)
-        for bucket in self.buckets:     # b iterations => O(b * l) => O(n)
-            length += bucket.length()   # O(n) from ll.length(each b); or O(l = n/b)
-        return length   # O(1)
+        # length = 0      # O(1)
+        # for bucket in self.buckets:     # b iterations => O(b * l) => O(n)
+        #     length += bucket.length()   # O(n) from ll.length(each b); or O(l = n/b)
+        # return length   # O(1)
+
+        return self.entries # O(1) to grab property
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
@@ -89,9 +93,11 @@ class HashTable(object):
         entry = bucket.find(lambda entry: key == entry[0])  # O(l), l = length
         
         if entry is not None:       # O(1)
-            bucket.delete(entry)    # O(l)    
+            bucket.delete(entry)    # O(l)
+            self.entries -= 1       # O(1)
 
         bucket.append((key, value))    # append key value pair, O(1)
+        self.entries += 1   # O(1)
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
@@ -102,6 +108,7 @@ class HashTable(object):
 
         if entry is not None:
             bucket.delete(entry)
+            self.entries -= 1 # O(1)
             return
         
         raise KeyError('Key not found: {}'.format(key))
