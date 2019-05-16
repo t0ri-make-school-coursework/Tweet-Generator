@@ -19,8 +19,17 @@ Histogram as a list of lists: [['one', 1], ['fish', 4], ['two', 1], ['red', 1], 
 import sys, string
     
 def remove_punctuation(word):
-    translator = str.maketrans('','',string.punctuation)
-    return word.translate(translator).lower()
+    translator = str.maketrans('', '', string.punctuation)
+    return word.translate(translator)
+
+def check_word(word):
+    # hardcoding for the thrill of it
+    proper_nouns = ['D.Va', 'Orisa', 'Reinhardt', 'Roadhog', 'Winston', 'Wrecking', 'Ball', 'Zarya', 'Ashe', 'Bastion', 'Doomfist', 'Genji', 'Hanzo', 'Junkrat', 'McCree', 'Mei', 'Pharah', 'Reaper', 'Soldier:', 'Sombra', 'Symmetra', 'Torbjorn', 'Tracer', 'Widowmaker', 'Ana', 'Baptiste', 'Brigitte', 'Lucio', 'Mercy', 'Moira', 'Zenyatta', 'Hanamura', 'Horizon', 'Lunar', 'Colony', 'Paris', 'Temple', 'Anubis', 'Volskaya', 'Industries', 'Dorado', 'Havana', 'Junkertown', 'Rialto', 'Route', 'Watchpoint:', 'Gibraltar', 'Blizzard', 'World', 'Eichenwalde', 'Hollywood',"King's", 'Row', 'Numbani', 'Busan', 'Ilios', 'Lijiang', 'Tower', 'Nepal', 'Oasis', 'Ayutthaya', 'Castillo', 'Chateau', 'Guillard', 'Ecopoint:', 'Antarctica', 'Necropolis', 'Petra']    
+    
+    if word not in proper_nouns:
+        return remove_punctuation(word.lower())
+    else:
+        return word
 
 # creates an array of words from a file
 def get_words(source_file):
@@ -29,7 +38,7 @@ def get_words(source_file):
     with open(source_file, 'r') as file:
         for line in file:
             for word in line.split():
-                words.append(remove_punctuation(word))
+                words.append(check_word(word))
 
     return words
 
